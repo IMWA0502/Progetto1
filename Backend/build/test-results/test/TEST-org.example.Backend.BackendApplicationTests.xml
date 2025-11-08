@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.Backend.BackendApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-11-08T23:34:23.812Z" hostname="MSI" time="0.444">
+  <properties/>
+  <testcase name="contextLoads()" classname="org.example.Backend.BackendApplicationTests" time="0.444"/>
+  <system-out><![CDATA[00:34:23.070 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [org.example.Backend.BackendApplicationTests]: BackendApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+00:34:23.156 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration org.example.Backend.BackendApplication for test class org.example.Backend.BackendApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.7)
+
+2025-11-09T00:34:23.478+01:00  INFO 34048 --- [Backend] [    Test worker] o.e.Backend.BackendApplicationTests      : Starting BackendApplicationTests using Java 17.0.17 with PID 34048 (started by ilrit in C:\Users\ilrit\Desktop\Progetto1\Backend)
+2025-11-09T00:34:23.479+01:00  INFO 34048 --- [Backend] [    Test worker] o.e.Backend.BackendApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2025-11-09T00:34:23.808+01:00  INFO 34048 --- [Backend] [    Test worker] o.e.Backend.BackendApplicationTests      : Started BackendApplicationTests in 0.527 seconds (process running for 1.339)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
