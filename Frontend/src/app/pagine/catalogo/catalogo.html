@@ -1,0 +1,84 @@
+<div class="catalogo">  <!-- qua metteremo che se mostraCategorie è true mostriamo come titolo "mostraCategorie", altrimenti se mostracategorie e falsa e se mostraDettaglio è vera viene mostrato il nome del prodotto selezionato -->
+  <h1 [class.vista-prodotti]="mostraProdotti || mostraDettaglio">{{ mostraCategorie ? 'Categorie Prodotti' : (mostraDettaglio ? prodottoSelezionato?.nome : categoriaSelezionata) }}</h1>
+  <!-- Vista Categorie -->
+  <div *ngIf="mostraCategorie" class="categorie-grid">  <!-- viene mostrato il tutto solo se mostraCategorie è true -->
+    <!-- fa ciclo for per ogni categoria, e crea una card per ciascuna. poi Quando clicchi su una card, viene chiamata la funzione selezionaCategoria(categoria.nome)-->
+    <div class="categoria-card" *ngFor="let categoria of categorie"  
+         (click)="selezionaCategoria(categoria.nome)"
+         [style.background-image]="categoria.immagine_url ? 'url(' + categoria.immagine_url + ')' : 'url(/assets/default-category.jpg)'">
+      <h3>{{ categoria.nome }}</h3>
+      <p>Esplora la categoria</p>
+    </div>
+  </div>
+
+  <!-- Vista Dettaglio -->
+  <div *ngIf="mostraDettaglio" class="categorie-grid">
+    <div *ngIf="!arrivoDaHome" class="back-card-dettaglio" (click)="tornaProdotti()">
+      <h3>← Torna ai Prodotti</h3>
+      <p>Clicca per tornare alla lista</p>
+    </div>
+    <div *ngIf="arrivoDaHome" class="categoria-card" (click)="tornaAllaHome()">
+      <h3>← Torna alla Home</h3>
+      <p>Clicca per tornare alla pagina principale</p>
+    </div>
+    <div class="dettaglio-card">
+  <img [src]="prodottoSelezionato?.immagine_url || 'http://localhost:8080/api/images/prodotti/default.jpg'" 
+     [alt]="prodottoSelezionato?.nome"
+     class="prodotto-immagine-dettaglio">
+      <p><strong>Marchio:</strong> {{ prodottoSelezionato?.marchio || 'Non specificato' }}</p>
+  <p><strong>Prezzo:</strong> €{{ (prodottoSelezionato?.prezzo_scontato != null) ? prodottoSelezionato?.prezzo_scontato : prodottoSelezionato?.prezzo }}</p>
+      <p><strong>Descrizione:</strong> {{ prodottoSelezionato?.descrizione || 'Descrizione non disponibile' }}</p>
+  <p><strong>Disponibilità:</strong> {{ prodottoSelezionato?.quantita_disponibile }} pezzi</p>
+      <!-- PULSANTE CARRELLO NEL DETTAGLIO -->
+      <button (click)="aggiungiAlCarrello(prodottoSelezionato)" 
+              [disabled]="prodottoSelezionato?.quantita_disponibile <= 0">
+        {{ prodottoSelezionato?.quantita_disponibile > 0 ? 'Aggiungi al carrello' : 'Non disponibile' }}
+      </button>
+      <!-- PULSANTE WISHLIST NEL DETTAGLIO -->
+      <button class="wishlist-btn" (click)="aggiungiAWishlist(prodottoSelezionato)" title="Aggiungi alla wishlist">
+        <span class="cuore">&#10084;</span>
+      </button>
+    </div>
+  </div>
+  <!-- Vista Prodotti -->
+  <div *ngIf="mostraProdotti">
+    <!-- Pulsante torna alle categorie -->
+    <div class="back-card" (click)="tornaAlleCategorie()">
+      <h3>← Torna alle Categorie</h3>
+      <p>Clicca per tornare alla selezione categorie</p>
+    </div>
+    
+    <!-- Filtro per marca -->
+    <div class="filtro-marca" *ngIf="marcheDisponibili.length > 0">
+      <label for="marca">Filtra per marca:</label>
+      <select id="marca" [(ngModel)]="marcaSelezionata">
+        <option value="">Tutte le marche</option>
+        <option *ngFor="let marca of marcheDisponibili" [value]="marca">{{ marca }}</option>
+      </select>
+    </div>
+    
+    <div class="prodotti-grid">
+      <div class="categoria-card_prodotto" *ngFor="let prodotto of prodottiFiltrati">
+        <div (click)="selezionaProdotto(prodotto)">
+          <img [src]="prodotto.immagine_url || 'http://localhost:8080/api/images/prodotti/default.jpg'" 
+               [alt]="prodotto.nome"
+               class="prodotto-immagine">
+          <h3>{{ prodotto.nome }}</h3>
+          <p>{{ prodotto.marchio || 'Marchio non specificato' }}</p>
+          <p class="prezzo">{{ prodotto.prezzo }}€</p>
+          <p>Disponibili: {{ prodotto.quantita_disponibile }}</p>
+        </div>
+
+        <!-- PULSANTE CARRELLO -->
+        <button (click)="aggiungiAlCarrello(prodotto)" 
+                [disabled]="prodotto.quantita_disponibile <= 0">
+          {{ prodotto.quantita_disponibile > 0 ? 'Aggiungi al carrello' : 'Non disponibile' }}
+        </button>
+        <button class="wishlist-btn" (click)="aggiungiAWishlist(prodotto)">
+        <span class="cuore">&#10084;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+

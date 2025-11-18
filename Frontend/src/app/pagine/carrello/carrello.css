@@ -1,0 +1,135 @@
+.carrello {
+  max-width: 800px; /* Ridotta larghezza per centrare meglio */
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra tutti gli elementi */
+}
+
+/* Classi unificate per testi */
+.carrello-text {
+  color: #ffffff;
+}
+
+.carrello-label {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.carrello h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.carrello-vuoto {
+  text-align: center;
+  padding: 20px;
+}
+
+.carrello-vuoto a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #ff3d00 0%, #ff6f00 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.carrello-item {
+  display: flex;
+  gap: 20px;
+  align-items: center; /* Centra verticalmente gli elementi */
+  justify-content: center; /* Centra orizzontalmente il contenuto */
+  background: rgba(0, 0, 0, 0.4); /* Sfondo nero trasparente */
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  width: 100%; /* Assicura che occupi tutta la larghezza disponibile */
+  max-width: 700px; /* Limita la larghezza massima */
+}
+
+.carrello-item:hover {
+  background: rgba(0, 0, 0, 0.5); /* Più scuro al hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.carrello-item img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain; /* Mostra l'immagine completa senza tagliare */
+  border-radius: 10px;
+
+  padding: 12px;
+}
+
+.item-details {
+  flex: 1;
+  margin-left: 15px; /* Più spazio dall'immagine */
+}
+
+.item-details h4 {
+  font-size: 1.6rem; /* Font ancora più grande per il titolo */
+  margin-bottom: 15px; /* Più spazio sotto il titolo */
+  font-weight: 600;
+}
+
+.item-details p {
+  margin: 10px 0; /* Spaziatura aumentata */
+  font-size: 1.3rem; /* Font più grande per i dettagli */
+}
+
+/* Controlli quantità con spaziatura migliorata */
+.quantity-control {
+  margin: 15px 0; /* Spazio sopra e sotto */
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Spazio tra label e input */
+}
+
+.quantity-control input {
+  padding: 8px 12px; /* Padding aumentato */
+  font-size: 1.1rem; /* Font più grande nell'input */
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.btn-remove {
+  background: linear-gradient(135deg, #ff3d00 0%, #ff6f00 100%);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn-remove:hover {
+  background: #c82333;
+}
+
+.totale {
+  text-align: center;
+  margin: 30px auto 0 auto; /* Centra anche il totale */
+  padding: 25px;
+  background: rgba(0, 0, 0, 0.4); /* Sfondo coerente */
+  border-radius: 15px;
+  border: 1px solid rgba(241, 72, 20, 0.3); /* Bordo arancione */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-checkout {
+  border: none;
+  padding: 12px 26px;
+  border-radius: 5px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff3d00 0%, #ff6f00 100%);
+  font-size: 1.6rem; /* Font ancora più grande per il titolo */
+  font-weight: 500;
+}
+

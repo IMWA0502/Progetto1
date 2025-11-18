@@ -1,0 +1,29 @@
+
+<div class="login-container">
+  <div class="login-card">
+    <h2 class="login-title">Accedi</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      
+      <div class="form-group">
+        <label for="email">EMAIL:</label>
+        <input type="email" id="email" formControlName="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">PASSWORD:</label>
+        <div class="input-with-icon">
+          <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password" required>
+          <span class="eye-icon" (click)="togglePassword()">
+            <img [src]="showPassword ? 'assets/eye.svg' : 'assets/eyeclosed.svg'" alt="Toggle">
+          </span>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-login" [disabled]="loginForm.invalid">ACCEDI</button>
+    </form>
+
+    <div class="register-link">
+      <p>Non hai un account? <a routerLink="/registrazione">Registrati qui</a></p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,149 @@
+<div class="home-page">
+  <div class="package-TitoloParagrafo">PRODOTTI IN VETRINA</div>
+
+  <!-- Loading indicator specifico per i prodotti in vetrina -->
+  <div *ngIf="loadingVetrina" class="loading-message">
+    <p>Caricamento prodotti in vetrina...</p>
+  </div>
+
+  <!-- Error message specifico per i prodotti in vetrina -->
+  <div *ngIf="errorVetrina && !loadingVetrina" class="error-message">
+    <p>{{ errorVetrina }}</p>
+  </div>
+
+  <!-- Prodotti in vetrina dal database -->
+  <div class="vetrina-griglia" *ngIf="!loadingVetrina && !errorVetrina">
+    <!-- Messaggio quando non ci sono prodotti in vetrina -->
+    <div *ngIf="(!prodottiInVetrina || prodottiInVetrina.length === 0)" class="empty-message">
+      <p>Al momento non ci sono prodotti in vetrina. Controlla più tardi o visita il catalogo.</p>
+    </div>
+
+    <div class="prodotti-card" *ngFor="let prodotto of prodottiInVetrina " (click)="vaiAlDettaglioProdotto(prodotto)" style="cursor:pointer;">
+      <div class="prodotti-info">
+        <img [src]="prodotto.immagine_url" [alt]="prodotto.nome" class="prodotto-img" />
+        <h2>{{ prodotto.nome }}</h2>
+        <p>{{ prodotto.categoria || 'Categoria' }}</p>
+        <!-- Prezzo e badge vetrina (opzionale) -->
+        <div class="prodotto-meta">
+          <span class="prezzo">€{{ prodotto.prezzo }}</span>
+          <span *ngIf="prodotto.in_vetrina" class="badge-vetrina">In vetrina</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <div *ngIf="prodottiSuggeriti.length > 0" class="package-TitoloParagrafo" style="margin-top:2rem;">
+  PRODOTTI CONSIGLIATI PER TE
+</div>
+
+<!-- Griglia suggeriti -->
+<div class="vetrina-griglia" *ngIf="prodottiSuggeriti.length > 0">
+  <div class="prodotti-card" *ngFor="let prodotto of prodottiSuggeriti" (click)="vaiAlDettaglioProdotto(prodotto)" style="cursor:pointer;">
+    <div class="prodotti-info">
+      <img [src]="prodotto.immagine_url" [alt]="prodotto.nome" class="prodotto-img" />
+      <h2>{{ prodotto.nome }}</h2>
+      <div class="prodotto-meta">
+        <span class="prezzo">{{ prodotto.prezzo }}€</span>
+        <!-- Badge opzionale per suggeriti -->
+        <span *ngIf="prodotto.suggerito" class="badge-vetrina">Suggerito</span>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  
+
+  <div class="package-TitoloParagrafo">PRODOTTI PIÙ ACQUISTATI</div>
+  
+  <!-- Loading indicator -->
+  <div *ngIf="loading" class="loading-message">
+    <p>Caricamento prodotti in corso...</p>
+  </div>
+
+  <!-- Error message -->
+  <div *ngIf="error && !loading" class="error-message">
+    <p>{{ error }}</p>
+  </div>
+
+
+
+
+  <!-- Prodotti dal database più acquistati -->
+  <div class="prodotti-row" *ngIf="!loading && !error">
+    <div class="prodotti-card" *ngFor="let prodotto of prodottiInEvidenza | slice:0:3" (click)="vaiAlDettaglioProdotto(prodotto)" style="cursor:pointer;">
+      <div class="prodotti-info">
+        <img [src]="prodotto.immagine_url" [alt]="prodotto.nome" class="prodotto-img" />
+        <h2>{{ prodotto.nome }}</h2>
+      </div>
+    </div>
+  </div>
+
+<div class="offerte-container">
+  <div class="package-TitoloParagrafo">OFFERTE SPECIALI</div>
+  
+  <!-- Loading indicator per pacchetti -->
+  <div *ngIf="loadingPacchetti" class="loading-message">
+    <p>Caricamento offerte speciali...</p>
+  </div>
+
+  <!-- Error message per pacchetti -->
+  <div *ngIf="errorPacchetti && !loadingPacchetti" class="error-message">
+    <p>{{ errorPacchetti }}</p>
+  </div>
+
+  <!-- Pacchetti dal database -->
+  <div class="offers-row" *ngIf="!loadingPacchetti && !errorPacchetti">
+    <div class="package-card" *ngFor="let pacchetto of pacchetti" (click)="apriDettaglioPacchetto(pacchetto)" style="cursor: pointer;">
+      <h2>{{ pacchetto.nome }}</h2>
+      <div class="package-paragrafo">{{ pacchetto.descrizione }}</div>
+      <div class="package-price">
+  <span class="price-original">€{{ pacchetto.prezzo_originale }}</span>
+  <span class="price-discount">€{{ pacchetto.prezzo_scontato }}</span>
+      </div>
+      <div class="package-actions">
+        <button class="btn-primary" (click)="vaiADettaglioPacchetto(pacchetto); $event.stopPropagation()">Aggiungi al carrello</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Sezione Novità -->
+  <div class="news-container">
+    <div class="package-TitoloParagrafo">NOVITÀ DAL MONDO TECH</div>
+    <!-- Prima fila: 3 card -->
+    <div class="news-row news-row-top">
+      <div class="news-card" (click)="vaiANovita('notebook-gaming-2025')">
+        <img src="assets/news-notebook.jpg" alt="Miglior notebook per studenti" class="news-img" />
+        <h3>Miglior notebook per studenti e gamer del 2025</h3>
+        <p>Non importa il percorso di studi, ROG ha il notebook perfetto per...</p>
+      </div>
+      
+      <div class="news-card" (click)="vaiANovita('raffreddamento-smartphone')">
+        <img src="assets/news-cooling.jpg" alt="Sistema raffreddamento" class="news-img" />
+        <h3>Sistema di raffreddamento negli smartphone gaming</h3>
+        <p>Come ROG rivoluziona il mobile gaming grazie a soluzioni di raff...</p>
+      </div>
+      
+      <div class="news-card" (click)="vaiANovita('rog-phone-9-pro')">
+        <img src="assets/AI.jpg" alt="ROG Phone 9 Pro" class="news-img" />
+        <h3>AI gaming con ROG Phone 9 Pro</h3>
+        <p>Ecco come il ROG Phone 9 Pro rivoluziona il gaming su mobile c...</p>
+      </div>
+    </div>
+    
+    <!-- Seconda fila: 2 card centrate -->
+    <div class="news-row news-row-bottom">
+      <div class="news-card" (click)="vaiANovita('command-center-z13')">
+        <img src="assets/news-command-center.jpg" alt="Command Center" class="news-img" />
+        <h3>Come funziona il Command Center del ROG Flow Z13</h3>
+        <p>Il ROG Flow Z13 del 2025 è un PC gaming 2-in-1 che offre una vasta gamma di strumenti per personalizza...</p>
+      </div>
+      
+      <div class="news-card" (click)="vaiANovita('vetrina-flow-z13')">
+        <img src="assets/news-flow-z13.jpg" alt="ROG Flow Z13 2025" class="news-img" />
+        <h3>Vetrina prodotti | ROG Flow Z13 2025</h3>
+      <p>Il tablet da gaming più potente al mondo è tornato, ancora più potente grazie a un nuovissimo processore...</p>
+    </div>
+  </div>
+</div>
+

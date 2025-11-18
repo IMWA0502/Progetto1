@@ -1,0 +1,238 @@
+.dettaglio-ordine-section {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 32px 24px;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+.titolo-sezione {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 28px;
+  color: #222;
+  letter-spacing: 0.5px;
+}
+
+.ordine-info-blocco {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.ordine-label {
+  font-weight: 500;
+  color: #444;
+  margin-right: 6px;
+}
+
+.ordine-totale {
+  color: #1a237e;
+  font-weight: 600;
+}
+
+.ordine-stato {
+  padding: 2px 10px;
+  border-radius: 8px;
+  font-size: 0.95em;
+  font-weight: 500;
+  background: #e3e7fa;
+  color: #2a3eb1;
+  text-transform: capitalize;
+}
+
+.stato-in\ lavorazione { background: #fffbe7; color: #bfa600; }
+.stato-spedito { background: #e7faff; color: #0077b6; }
+.stato-consegnato { background: #e7faed; color: #1b8a3a; }
+.stato-annullato { background: #fae7e7; color: #b10000; }
+
+.sottotitolo {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 28px 0 12px 0;
+  color: #222;
+}
+
+/* PRODOTTI */
+.prodotti-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.prodotto-riga {
+  display: flex;
+  align-items: center;
+  background: #f7f7fa;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  gap: 15px;
+}
+
+.prodotto-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.prodotto-info {
+  flex: 1;
+}
+
+.prodotto-nome {
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.prodotto-dettagli {
+  display: flex;
+  gap: 20px;
+  color: #666;
+  font-size: 0.9em;
+  flex-wrap: wrap;
+}
+
+.prodotto-quantita, .prodotto-prezzo, .prodotto-subtotale {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.prodotto-subtotale {
+  font-weight: 600;
+  color: #1a237e;
+}
+
+/* RIEPILOGO PREZZI */
+.riepilogo-prezzi {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #e9ecef;
+}
+
+.prezzi-dettaglio {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.riga-prezzo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.riga-prezzo.sconto {
+  color: #28a745;
+  font-weight: 500;
+}
+
+.riga-prezzo.totale-finale {
+  border-top: 2px solid #1a237e;
+  padding-top: 15px;
+  margin-top: 10px;
+  font-size: 1.1em;
+}
+
+.label-prezzo {
+  font-weight: 500;
+}
+
+.valore-prezzo {
+  font-weight: 600;
+}
+
+.sconto-valore {
+  color: #28a745;
+}
+
+.coupon-code {
+  background: #e3f2fd;
+  color: #1a237e;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* PAGAMENTO */
+.pagamento-info {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #e9ecef;
+}
+
+.pagamento-dettagli {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pagamento-dettagli > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* INDIRIZZO */
+.indirizzo-box {
+  background: #f7f7fa;
+  border-radius: 8px;
+  padding: 14px 18px;
+  color: #333;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.loading {
+  text-align: center;
+  color: #888;
+  margin-top: 40px;
+  font-size: 1.1em;
+}
+.btn-torna {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+.btn-torna:hover 
+ {
+  background: #1565c0;
+}
+.btn
+{
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+}

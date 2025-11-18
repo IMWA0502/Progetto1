@@ -1,0 +1,250 @@
+.catalogo {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+}
+
+.catalogo h1 {
+  text-align: center;
+  margin-bottom: 150px;
+  color: #ffffff;
+  font-size: 3rem;
+  text-decoration: none;
+}
+
+/* Riduce lo spazio quando si è nella vista prodotti */
+.catalogo h1.vista-prodotti {
+  margin-bottom: 50px;
+}
+
+.categorie-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.categoria-card {
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.back-card
+{
+  text-align: center;
+  padding: 20px;
+  background-color:#ff3d00;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  max-width: 50%;
+  margin: 0 auto;
+}
+.back-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  
+}
+.back-card-dettaglio
+{
+  text-align: center;
+  padding: 20px;
+  background-color:#ff3d00;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.back-card-dettaglio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  
+}
+
+
+.categoria-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  z-index: 1;
+}
+
+.categoria-card h3,
+.categoria-card p {
+  position: relative;
+  z-index: 2;
+  
+}
+
+.categoria-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.categoria-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+.categoria-card p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 1rem;
+}
+
+.categoria-card_prodotto {
+  color: white;
+  background: rgba(0, 0, 0, 0.2); /* Sfondo nero più trasparente (30%) */
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  min-width: 250px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Aggiunta ombra per profondità */
+  cursor: pointer;
+}
+
+.categoria-card_prodotto:hover {
+  background: rgba(0, 0, 0, 0.5); /* Sfondo leggermente più scuro al hover (50%) */
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* Ombra più intensa */
+}
+
+/* Layout verticale per i prodotti in due colonne */
+.prodotti-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Due colonne di uguale larghezza */
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Stile per le immagini dei prodotti */
+.prodotto-immagine {
+  width: 100%;
+  max-width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dettaglio-card {
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center;
+}
+
+.filtro-marca {
+  /* Layout e posizionamento */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 25px 0;
+  padding: 15px 20px;
+  color: #ff3d00;
+}
+
+
+.filtro-marca select {
+  /* Stile select coerente (precedentemente inline) */
+  padding: 10px;
+  background: #ff3d00;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  min-width: 160px;
+}
+
+.back-card {
+  margin-bottom: 30px; /* spostato da inline */
+}
+
+.filtro-marca {
+  margin-bottom: 20px; /* mantenuto come prima */
+  text-align: center;
+}
+
+.filtro-marca label {
+  color: white;  
+  margin-right: 10px;
+}
+
+.prezzo {
+  font-weight: bold;
+}
+
+.filtro-marca label { /* Esempio: <label for="marca">Filtra per marca:</label> */
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem; /* Dimensione più grande per la scritta */
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Stile per le opzioni del dropdown */
+.filtro-marca select option {
+  background-color: #2a2a2a; /* Sfondo scuro per le opzioni */
+  color: #ffffff; /* Testo bianco */
+  font-size: 1.1rem; /* Font più grande per le opzioni */
+  font-weight: 500; /* Peso leggermente aumentato */
+  padding: 10px; /* Padding aumentato per più spazio */
+}
+
+/* Stile per il pulsante "Aggiungi al carrello" */
+button {
+  background: linear-gradient(135deg, #ff3d00 0%, #ff6f00 100%); /* Sfondo arancione gradiente */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+
+}
+
+.wishlist-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.7rem;
+  transition: transform 0.1s;
+  margin-left: 0.5rem;
+}
+.wishlist-btn:hover{
+  color: #ff3d00;
+}
+
+
+
+
+
